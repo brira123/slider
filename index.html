@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Slideshow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>IMAGES AUTO SLIDER</h1>
+    <div id="container">
+        <img class="slides" src="images/1.jpg" height="552px">
+        <img class="slides" src="images/2.jpg" height="460px">
+        <img class="slides" src="images/3.jpg">
+        <img class="slides" src="images/4.jpg" height="460px">
+        <img class="slides" src="images/5.jpg" height="460px">
+        <img class="slides" src="images/6.jpg">
+        <img class="slides" src="images/7.jpg">
+        <img class="slides" src="images/8.jpg">
+        <img class="slides" src="images/9.jpg">
+        <img class="slides" src="images/10.jpg">
+        <img class="slides" src="images/11.jpg">
+        <img class="slides" src="images/12.jpg">
+        <img class="slides" src="images/13.jpeg">
+        <img class="slides" src="images/14.jpg">
+        <img class="slides" src="images/15.jpg">
+        <img class="slides" src="images/16.png">
+        <img class="slides" src="images/17.png">
+        <img class="slides" src="images/19.jpg">
+        <button class="btn" onclick="plusIndex(-1)" id="btn1">&#10094;</button>
+        <button class="btn" onclick="plusIndex(1)" id="btn2">&#10095;</button>
+    </div>
+</body>
+<script>
+    var index = 0;
+
+    function plusIndex(n) {
+        index = index + n;
+        showImage(index);
+    }
+
+    showImage(1);
+
+    function showImage(n) {
+        var i;
+        var x = document.getElementsByClassName("slides");
+        if(n > x.length){ index = 1};
+        if(n < 1){ index = x.length};
+        for(i=0;i<x.length;i++)
+            {
+                x[i].style.display = "none";
+            }
+        x[index-0].style.display = "block";
+    }
+    autoSlide();
+    function autoSlide() {
+        var i;
+        var x = document.getElementsByClassName("slides");
+        for(i=0;i<x.length;i++)
+            {
+                x[i].style.display = "none";
+            }
+        if(index > x.length){ index = 1}
+        x[index-0].style.display = "block";
+        index++;
+        setTimeout(autoSlide,1000);
+    }
+</script>
+</html>
